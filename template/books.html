@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<link rel="shortcut icon" href="static/images/book_logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<style>
+
+
+
+/*Original starts here*/
+.nav{
+    position: absolute;
+    top: 0;
+    /* z-index: -1; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    background-color: green;
+    height: 6rem;
+    position: sticky;
+    width: 100%;
+}
+        button{
+    padding: .5rem 2rem;
+width: 120px;
+margin: auto;
+    background-color: green;
+    font-weight: bold;
+    color: white;
+  margin-top: 10px;
+}
+.btn{
+    background-color: green;
+    color: white;
+    padding: .5rem 2rem;
+
+width: 100px;
+}
+#welcome{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    text-decoration: none;
+}
+.add{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+input{
+    margin: 10px auto;
+    padding: 5px;
+    width: 200px;
+    font-size: 12px;
+}
+.logo{
+    height: 90%;
+    width: 4%;
+    margin-left: 1rem;
+    border: none;
+}
+strong{
+    font-size: 14px;
+}
+.item{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 2px solid green;
+    background-color: red;
+    /* background-color: lightgreen; */
+    margin: 1rem;
+border-radius: 1.5rem;
+width: 24%;
+padding: 1.5rem;
+font-size: 1.5rem;
+min-width: 170px;
+}
+</style>
+</head>
+<body>
+    <ul class="nav">
+        <img class="logo" src="static/images/book_logo.png" alt="">
+        <li> <i class="fa fa-home" aria-hidden="true"></i><a href="/">Home</a>
+        </li>
+        <li><i class="fa fa-comment" aria-hidden="true"></i><a href="/#message">Messege</a></li>
+        <!--<li id="service"  ><i class="fa fa-id-card-o" aria-hidden="true"></i><a href="/{{user}}/books">Books</a>-->
+                <li id="service"  ><i class="fa fa-id-card-o" aria-hidden="true"></i><a href="/books">Books</a>
+
+
+
+        </li>
+        <li><i class="fa fa-sign-in" aria-hidden="true"></i><a href="/logout">Log Out</a></li>
+        <!--<li><i class="fa fa-user-circle-o" aria-hidden="true"></i><a href="/{{user}}/books">{{user_name}}</a></li>-->
+                <li><i class="fa fa-user-circle-o" aria-hidden="true"></i><a href="/{{user}}/books">{{user_name}}</a></li>
+
+        <li id="about"><i class="fa fa-info-circle" aria-hidden="true"></i><a href="#">About Us</a></li>
+    </ul>
+
+<!-- </div> -->
+<div id="welcome">
+    <div id="welcome">Welcome {{user_name}} To Your Library </div>
+    <!-- <a href="/logout"><button>Log Out</button></a> -->
+    <!-- <div><h5>(Presented By Spiderman)</h5></div> -->
+    <h5>( Presented By Spiderman )</h5>
+    <div> Books in the Library</div>
+</div>
+{% with messages=get_flashed_messages() %}
+{% if messages %}
+{% for message in messages%}
+<div class="alert alert-warning alert-dismissible fade show" role="warning">
+  <strong><i class="fa fa-check-circle-o" aria-hidden="true"></i>
+{{message}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div id="books">
+    <!-- <h1>Books In Library
+    </h1> -->
+        <div id="service-section">
+        <div class="item">
+            <img src="static/images/the_monk.jpg" alt="">
+            <h2>The monk who sold his ferrari</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+            <a href="static/books/the_monk.pdf" download="The monk who sold his ferrari"><button>Download </button></a>
+
+        </div>
+        <div class="item">
+            <img src="static/images/rich_poor.jpg" alt="">
+            <h2>Rich dad Poor dad</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+            <a href="https://fredmatsheza.webs.com/documents/RichDad,PoorDad.pdf" download="rich_dad_poor_dad"><button>Download </button></a>
+
+        </div>
+        <div class="item">
+            <img src="static/images/think_and_grow_rich.jpg" alt="">
+            <h2>Think and Grow
+                Rich
+            </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+            <a href="static/books/think_and_grow_rich.pdf" download="Think and grow rich"><button>Download </button></a>
+
+        </div>
+        <div class="item">
+            <img src="static/images/who_will_cry.jpg" alt="">
+            <h2>Who will cry when you will die</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+            <a href="https://sgrkd.files.wordpress.com/2014/12/who-will-cry-when-you-die.pdf"><button>Download </button></a>
+
+        </div>
+        <div class="item">
+            <img src="static/images/my_story.jpg" alt="">
+            <h2>The story of my experiments with Truth</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+            <a href="static/books/the_story.pdf" download="The story of my experiments with Truth"><button>Download </button></a>
+
+        </div>
+        <div class="item">
+            <img src="static/images/the_alchemist.jpg" alt="">
+            <h2>The  Alchemist</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+            <a href="static/books/the_alchemist.pdf" download="The_Alchemist"><button>Download </button></a>
+
+        </div>
+        <div class="item">
+            <img src="static/images/bhagvat_geeta.jpg" alt="">
+            <h2>BHAGAVAD GITA</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+<a href="https://estudantedavedanta.net/Srimad%20Bhagavad%20Gita%20with%20Commentary%20-%20Swami%20Nikhilananda%20(1944)%20[English].pdf" download="Bhagwat geeta"><button>Download </button></a>
+  </div>
+        <div class="item">
+            <img src="static/images/as_a_man.jpg" alt="">
+            <h2>As a men thinketh</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+            <a href="http://books4free.com/uploads/product_image/As_a_Man_Thinketh.pdf"><button>Download </button></a>
+
+        </div>
+         {% for key in books %}
+        <div class="item">
+          Uploaded by {{books[key]["user_name"]}}
+
+             <img src="static/images/book_logo2.png" alt="">
+            <h2>{{key}}</h2>
+            <p>{{books[key]['about']}}</p>
+            <a href="static/uploads/{{books[key]['filename']}}" download="{{key}}"><button>Download </button></a>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+    <div class="add">
+<div><h1>Add Your Book</h1></div>
+<div>
+     <form action="/upload" method="POST" enctype = "multipart/form-data">
+        <strong>Book Name</strong> <br>
+    <input type="text" name="book_name" id="" placeholder="enter book name" required> <br>
+        <strong>Description of book/document</strong> <br>
+        <textarea name="about" id="" style="font-size: 15px;" cols="30" rows="5" placeholder="Write what your book/document is related" required></textarea>
+    <br>
+    <input type="file"  name="file_name" accept=".pdf,.doc,.xml">
+    <input  class='btn' type="submit" value="UPLOAD">
+    </form>
+</div>
+    </div>
+</body>
+</html>

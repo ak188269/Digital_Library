@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library</title>
+    <link rel="stylesheet"
+    href="static/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<link rel="shortcut icon" href="static/images/book_logo.png" type="image/x-icon">
+    <style>
+
+
+    </style>
+</head>
+<body>
+    <div class="navigation" id="home">
+
+        <ul class="nav">
+            <img class="logo" src="static/images/book_logo.png" alt="">
+            <li> <i class="fa fa-home" aria-hidden="true"></i><a href="/">Home</a>
+            </li>
+            <li><i class="fa fa-comment" aria-hidden="true"></i><a href="#message">Messege</a></li>
+            <li id="service"  ><i class="fa fa-id-card-o" aria-hidden="true"></i><a href="#books">Books</a>
+
+
+            </li>
+            <!--<li><i class="fa fa-sign-in" aria-hidden="true"></i><a href="/login">Login</a></li>-->
+            <!--<li><i class="fa fa-user-circle-o" aria-hidden="true"></i><a href="/login">User</a></li>-->
+            <!--<li id="about"><i class="fa fa-info-circle" aria-hidden="true"></i><a href="#">About Us</a></li>-->
+            <li><i class="fa fa-sign-in" aria-hidden="true"></i><a href="{{'/logout' if 'user' in session else '/login' }}">{{"Log out" if 'user' in session else "Login"}}</a></li>
+            <li><i class="fa fa-user-circle-o" aria-hidden="true"></i><a href="/login">{{user_name if 'user' in session else "User"}}</a></li>
+            <li><i class="fa fa-info-circle" aria-hidden="true"></i><a href="#">About Us</a></li>
+        </ul>
+
+    </div>
+    <div class="box">
+        {% with messages=get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages%}
+        <div class="alert alert-warning alert-dismissible fade show" role="warning">
+          <strong><i class="fa fa-check-circle-o" aria-hidden="true"></i>
+        {{message}}</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <h1 id="welcome">Welcome To Digital Library</h1>
+        <p id="para">
+            <!-- <span>"</span>This is digital library for engineering students .Here you will get almost all books and notes related to enginnering  . Explore the library we have many things for you guys.
+            Gain the most out of it
+            Happy hacking <span> ,,</span> -->
+           &#160; ( Presented By Spiderman )</p>
+    </div>
+    <!-- Slideshow container -->
+<div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <!--<img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHNjaG9vbCUyMGxpYnJhcmllc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" style="width:100%">-->
+            <img src="https://images.unsplash.com/photo-1485322551133-3a4c27a9d925?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" style="width:100%">
+
+      <!-- <div class="text">Caption Text</div> -->
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=990&q=80" style="width:100%">
+      <!-- <div class="text">Caption Two</div> -->
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwzNjQ3MjQ4fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" style="width:100%">
+      <!-- <div class="text">Caption Three</div> -->
+    </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+    <div id="books">
+        <h1>Books In Library
+        </h1>
+            <div id="service-section">
+            <div class="item">
+                <img src="static/images/the_monk.jpg" alt="">
+                <h2>The monk who sold his ferrari</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+                <a href="static/books/the_monk.pdf" download="The monk who sold his ferrari"><button>Download </button></a>
+
+            </div>
+            <div class="item">
+                <img src="static/images/rich_poor.jpg" alt="">
+                <h2>Rich dad Poor dad</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+                <a href="/download"><button>Download </button></a>
+
+            </div>
+            <div class="item">
+                <img src="static/images/think_and_grow_rich.jpg" alt="">
+                <h2>Think and Grow
+                    Rich
+                </h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+                <a href="/download"><button>Download </button></a>
+
+            </div>
+            <div class="item">
+                <img src="static/images/who_will_cry.jpg" alt="">
+                <h2>Who will cry when you will die</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+                <a href="/download"><button>Download </button></a>
+
+            </div>
+            <div class="item">
+                <img src="static/images/my_story.jpg" alt="">
+                <h2>The story of my experiments with Truth</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+                <a href="/download"><button>Download </button></a>
+
+            </div>
+            <div class="item">
+                <img src="static/images/the_alchemist.jpg" alt="">
+                <h2>The alchemist</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+                <a href="/download"><button>Download </button></a>
+
+            </div>
+            <div class="item">
+                <img src="static/images/bhagvat_geeta.jpg" alt="">
+                <h2>BHAGAVAD GITA</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+                <a href="/download"><button>Download </button></a>
+      </div>
+            <div class="item">
+                <img src="static/images/as_a_man.jpg" alt="">
+                <h2>As a men thinketh</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt animi natus, quis facilis aspernatur ipsam asperiores alias rerum id sit omnis quaerat quam nostrum illum cum!</p>
+                <a href="/download"><button>Download </button></a>
+
+            </div>
+        </div>
+        </div>
+        <div class="login">
+            <div ><a href="/login"><h2>
+                Add Your Book
+            </h2></a></div><div><a href="/login"><h2>Login to access more Books</h2></a></div>
+
+    </div>
+    <div id="message">
+        <h2 class="contact">Message Us</h2>
+
+        <form action="/message" method="POST">
+            <div>
+        <label for="name">Name</label>
+    </div>
+    <input type="text" placeholder="enter your name" name="name" id="name" required>
+
+<div>
+        <label for="mobile">Mobile</label>
+    </div>
+    <input type="text" placeholder="enter your mobile number" name="mobile" id="mobile">
+
+<div>
+        <label for="email">Email</label>
+    </div>
+    <input type="email" name="email" placeholder="enter your email" id="email" required>
+
+<p>Message</p>
+
+<div>
+
+    <!-- <label for="message">Message</label> -->
+<textarea name="message" placeholder="Enter your message" cols="30" rows="6" required></textarea>
+</div>
+<div>
+    <button id="btn">Submit</button>
+</div>
+</form>
+
+
+    <footer>
+        <p>Copyright &copy; {{date}} www.spiderman.com  All  rights  are  reserved</p>
+    </footer>
+    <script>var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}
+          slides[slideIndex-1].style.display = "block";
+          setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+        </script>
+</body>
+</html>
